@@ -55,6 +55,7 @@ bool myCmp::operator()(const studData &d1, const studData &d2)
     case SK::col06:result=compare(6);break;
     case SK::col07:result=compare(7);break;
     case SK::col08:result=compare(8);break;
+    default:;break;
     // 补全运算符重载函数
     }
     return result;
@@ -143,16 +144,14 @@ void ScoreSorter::out_file(quint8 lie)
     file.close();
 }
 
-void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg)
-{
-    // 自定义qDebug
-}
 
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
     qInstallMessageHandler(myMessageOutput);
     QString datafile = "data.txt";
+    //qInstallMessageHandler(myMessageOutput);
+    QString datafile = "C:/Users/ASUS/Desktop/github/5346486312/homework02/data.txt";
 
     // 如果排序后文件已存在，则删除之
     QFile f("sorted_"+datafile);
