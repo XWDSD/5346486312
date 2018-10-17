@@ -165,8 +165,10 @@ void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QS
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
-    //qInstallMessageHandler(myMessageOutput);
+    int p;
+    printf("请输入一个整数");
+    scanf("%d",&p);
+    qInstallMessageHandler(myMessageOutput);
     QString datafile = "data.txt";
 
     // 如果排序后文件已存在，则删除之
