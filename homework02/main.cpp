@@ -19,15 +19,15 @@ enum SortKind{
 
 
 typedef struct{
-    QString number;
-    QString name;
-    QVector<int> scores;
-    // 进行结构定义
+   QStringList s;
+    // 简化结构定义
 } studData;
 
 QDebug operator<< (QDebug d, const studData &data) {
-    QDebugStateSaver saver(d);
-    d.nospace()<<data.num<<data.name<<data.scores;
+    for(int i=0;i<data.s.size();i++)
+     {
+         d.noquote().nospace()<<QString(data.s.at(i))<<" ";
+     }      //简化for循环
 
     // 补全运算符重载函数，使其可以直接输出studData结构
     return d;
@@ -41,36 +41,21 @@ public:
 private:
     int currentColumn;
 };
-
+#define compare(a)   (d1.s.at(a)>=d2.s.at(a))?  1:0   //定义比较宏
 bool myCmp::operator()(const studData &d1, const studData &d2)
 {
     bool result = false;
     quint32 sortedColumn = 0x00000001<<currentColumn;
     switch (sortedColumn) {
-    case SK::col01:
-        if(d1.number>=d2.number)
-            result=d1.number;
-        else
-            result=d2.number;
-        break;
-    case SK::col02:
-        if(d1.name>=d2.name)
-            result=d1.name;
-        else
-            result=d2.name;
-        break;
-    case SK::col03:
-    case SK::col04:
-    case SK::col05:
-    case SK::col06:
-    case SK::col07:
-    case SK::col08:
-        if(d1.scores>=d2.scores)
-            result=d1.scores;
-        else
-            result=d2.scores;
-        break;
-    // 请补全运算符重载函数
+    case SK::col01:result=compare(1);break;
+    case SK::col02:result=compare(2);break;
+    case SK::col03:result=compare(3);break;
+    case SK::col04:result=compare(4);break;
+    case SK::col05:result=compare(5);break;
+    case SK::col06:result=compare(6);break;
+    case SK::col07:result=compare(7);break;
+    case SK::col08:result=compare(8);break;
+    // 补全运算符重载函数
     }
     return result;
 }
@@ -80,15 +65,15 @@ class ScoreSorter
 {
 public:
     ScoreSorter(QString dataFile);
-    void readFile();   //读取
-    void doSort();     //排序
-    void out_file(quint8 lie);  //输出
-    QString tempFile;
+    void readFile();
+    void doSort();
 private:
+    QString tempFile;
     QList<studData> data;
     studData list;
-    // 补全该类，使其实现上述要求
-}
+    void out_file(quint8 lie);
+};
+
 
 // 请补全
 ScoreSorter::ScoreSorter(QString dataFile)
