@@ -148,8 +148,6 @@ void ScoreSorter::out_file(quint8 lie)
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
-    qInstallMessageHandler(myMessageOutput);
-    QString datafile = "data.txt";
     //qInstallMessageHandler(myMessageOutput);
     QString datafile = "C:/Users/ASUS/Desktop/github/5346486312/homework02/data.txt";
 
