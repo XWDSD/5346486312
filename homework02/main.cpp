@@ -13,30 +13,7 @@ enum SortKind{
     col06    =   0x00000001<<5,         //!< 第6列
     col07    =   0x00000001<<6,         //!< 第7列
     col08    =   0x00000001<<7,         //!< 第8列
-    col09    =   0x00000001<<8,         //!< 第9列
-    col10    =   0x00000001<<9,         //!< 第10列
-    col11    =   0x00000001<<10,        //!< 第11列
-    col12    =   0x00000001<<11,        //!< 第12列
-    col13    =   0x00000001<<12,        //!< 第13列
-    col14    =   0x00000001<<13,        //!< 第14列
-    col15    =   0x00000001<<14,        //!< 第15列
-    col16    =   0x00000001<<15,        //!< 第16列
-    col17    =   0x00000001<<16,        //!< 第17列
-    col18    =   0x00000001<<17,        //!< 第18列
-    col19    =   0x00000001<<18,        //!< 第19列
-    col20    =   0x00000001<<19,        //!< 第20列
-    col21    =   0x00000001<<20,        //!< 第21列
-    col22    =   0x00000001<<21,        //!< 第22列
-    col23    =   0x00000001<<22,        //!< 第23列
-    col24    =   0x00000001<<23,        //!< 第24列
-    col25    =   0x00000001<<24,        //!< 第25列
-    col26    =   0x00000001<<25,        //!< 第26列
-    col27    =   0x00000001<<26,        //!< 第27列
-    col28    =   0x00000001<<27,        //!< 第28列
-    col29    =   0x00000001<<28,        //!< 第29列
-    col30    =   0x00000001<<29,        //!< 第30列
-    col31    =   0x00000001<<30,        //!< 第31列
-    col32    =   0x00000001<<31,        //!< 第32列
+
 };
 }
 
@@ -44,13 +21,15 @@ enum SortKind{
 typedef struct{
     QString number;
     QString name;
-    QVector<int> core;
+    QVector<int> scores;
     // 进行结构定义
 } studData;
 
 QDebug operator<< (QDebug d, const studData &data) {
+    QDebugStateSaver saver(d);
+    d.nospace()<<data.num<<data.name<<data.scores;
 
-    // 请补全运算符重载函数，使其可以直接输出studData结构
+    // 补全运算符重载函数，使其可以直接输出studData结构
     return d;
 }
 
@@ -69,13 +48,31 @@ bool myCmp::operator()(const studData &d1, const studData &d2)
     quint32 sortedColumn = 0x00000001<<currentColumn;
     switch (sortedColumn) {
     case SK::col01:
-    // ...
+        if(d1.number>=d2.number)
+            result=d1.number;
+        else
+            result=d2.number;
+        break;
+    case SK::col02:
+        if(d1.name>=d2.name)
+            result=d1.name;
+        else
+            result=d2.name;
+        break;
+    case SK::col03:
+    case SK::col04:
+    case SK::col05:
+    case SK::col06:
+    case SK::col07:
+    case SK::col08:
+        if(d1.scores>=d2.scores)
+            result=d1.scores;
+        else
+            result=d2.scores;
+        break;
     // 请补全运算符重载函数
-    // ...
-    //
     }
     return result;
-
 }
 
 
@@ -83,22 +80,90 @@ class ScoreSorter
 {
 public:
     ScoreSorter(QString dataFile);
-    // ...
-    // 请补全该类，使其实现上述要求
-    // ...
+    void readFile();   //读取
+    void doSort();     //排序
+    void out_file(quint8 lie);  //输出
+    QString tempFile;
+private:
+    QList<studData> data;
+    studData list;
+    // 补全该类，使其实现上述要求
 }
 
 // 请补全
-ScoreSorter::ScoreSorter(QString dataFile){
+ScoreSorter::ScoreSorter(QString dataFile)
+{
+    this->tempFile=dataFile;
 }
 
+
+void ScoreSorter::readFile()
+{
+     QFile file(this->tempFile);
+     if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
+     {
+         qDebug()<<"Can't open the file!"<<endl;
+     }
+     QString titile(file.readLine());
+     this->list.s = titile.split(" ", QString::SkipEmptyParts);
+     if((this->list.s).last() == "\n") this->list.s.removeLast();
+     studData lastdata;
+     while(!file.atEnd())
+     {
+         QByteArray line = file.readLine();
+         QString str(line);
+         lastdata.s = str.split(" ", QString::SkipEmptyParts);
+         if((lastdata.s).last() == "\n") lastdata.s.removeLast();
+         if(lastdata.s.size()==0) continue;
+         this->data.append(lastdata);
+     }
+     file.close();
+ }
+
+
+void ScoreSorter::doSort()
+{
+    for(int i=1;i<this->list.s.size();i++)
+        {
+            myCmp cmp(i-1);
+            std::sort(this->data.begin() , this->data.end() ,cmp );
+            qDebug()<<"排序后输出，当前排序第"<<i+1<<"列：";
+            qDebug() << "\t"<< (this->list);
+            for(int i=0;i<this->data.size();i++)  qDebug() << this->data.at(i);
+            qDebug()<<"====================================================\n";
+            this->out_file(i+1);
+        }
+}
+
+
+
+void ScoreSorter::out_file(quint8 lie)
+{
+    QFile file("sorted_"+this->tempFile);
+    file.open(QIODevice::ReadWrite | QIODevice::Append);
+    QTextStream stream(&file);
+    stream.setCodec("UTF-8");
+    stream<<QString("排序后输出，当前排序第 ")<<lie <<QString(" 列：")<<"\r\n";
+    stream<<"\t";
+    for(int j=0;j<this->list.s.size();j++)
+        stream<<this->list.s.at(j)<<"\t";
+    stream<<"\r\n";
+    for(int i=0;i<this->data.size();i++)
+    {
+        for(int j=0;j<this->list.s.size();j++)
+            stream<<this->data.at(i).s.at(j)<<"\t";
+        stream<<"\r\n";
+    }
+    stream<<"===================================================="<<"\r\n\r\n";
+    file.close();
+}
 
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
     // 自定义qDebug
 }
 
-int main()
+int main(int argc, char *argv[])
 {
     int p;
     printf("请输入一个整数");
@@ -108,7 +173,8 @@ int main()
 
     // 如果排序后文件已存在，则删除之
     QFile f("sorted_"+datafile);
-    if (f.exists()){
+    if (f.exists())
+    {
         f.remove();
     }
 
