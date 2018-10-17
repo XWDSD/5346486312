@@ -2,7 +2,7 @@
 #include <QVector>
 #include <QTextStream>
 #include <QFile>
-
+#include <QCoreApplication>
 namespace SK {
 enum SortKind{
     col01    =   0x00000001<<0,         //!< 第1列
@@ -42,10 +42,14 @@ enum SortKind{
 
 
 typedef struct{
-    // 请补全结构定义
+    QString number;
+    QString name;
+    QVector<int> core;
+    // 进行结构定义
 } studData;
 
 QDebug operator<< (QDebug d, const studData &data) {
+
     // 请补全运算符重载函数，使其可以直接输出studData结构
     return d;
 }
@@ -96,6 +100,9 @@ void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QS
 
 int main()
 {
+    int p;
+    printf("请输入一个整数");
+    scanf("%d",&p);
     qInstallMessageHandler(myMessageOutput);
     QString datafile = "data.txt";
 
@@ -106,7 +113,7 @@ int main()
     }
 
     ScoreSorter s(datafile);
-    s.readFile();
-    s.doSort();
+    s.readFile();        //读取
+    s.doSort();           //执行
     return 0;
 }
