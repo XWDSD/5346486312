@@ -165,9 +165,7 @@ void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QS
 
 int main(int argc, char *argv[])
 {
-    int p;
-    printf("请输入一个整数");
-    scanf("%d",&p);
+    QCoreApplication a(argc, argv);
     qInstallMessageHandler(myMessageOutput);
     QString datafile = "data.txt";
 
