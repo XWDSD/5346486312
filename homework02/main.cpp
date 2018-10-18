@@ -13,6 +13,7 @@ enum SortKind{
     col06    =   0x00000001<<5,         //!< 第6列
     col07    =   0x00000001<<6,         //!< 第7列
     col08    =   0x00000001<<7,         //!< 第8列
+    col09    =   0x00000001<<8,         //!< 第9列
 
 };
 }
@@ -47,14 +48,15 @@ bool myCmp::operator()(const studData &d1, const studData &d2)
     bool result = false;
     quint32 sortedColumn = 0x00000001<<currentColumn;
     switch (sortedColumn) {
-    case SK::col01:result=compare(1);break;
-    case SK::col02:result=compare(2);break;
-    case SK::col03:result=compare(3);break;
-    case SK::col04:result=compare(4);break;
-    case SK::col05:result=compare(5);break;
-    case SK::col06:result=compare(6);break;
-    case SK::col07:result=compare(7);break;
-    case SK::col08:result=compare(8);break;
+    case SK::col01:result=compare(0);break;
+    case SK::col02:result=compare(1);break;
+    case SK::col03:result=compare(2);break;
+    case SK::col04:result=compare(3);break;
+    case SK::col05:result=compare(4);break;
+    case SK::col06:result=compare(5);break;
+    case SK::col07:result=compare(6);break;
+    case SK::col08:result=compare(7);break;
+    case SK::col09:result=compare(8);break;
     default:;break;
     // 补全运算符重载函数
     }
@@ -111,13 +113,13 @@ void ScoreSorter::doSort()
 {
     for(int i=1;i<this->list.s.size();i++)
         {
-            myCmp cmp(i-1);
+            myCmp cmp(i);
             std::sort(this->data.begin() , this->data.end() ,cmp );
             qDebug()<<"排序后输出，当前排序第"<<i+1<<"列：";
             qDebug() << "\t"<< (this->list);
             for(int i=0;i<this->data.size();i++)  qDebug() << this->data.at(i);
             qDebug()<<"====================================================\n";
-            this->out_file(i+1);
+            this->out_file(i);
         }
 }
 
