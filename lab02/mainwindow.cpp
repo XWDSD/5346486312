@@ -75,9 +75,9 @@ void MainWindow::createToolBar ()
     clearBtn->setToolTip(tr("清除当前画板"));
     connect (clearBtn, &QToolButton::clicked, centerFrame, &CenterFrame::clearPaint);
 
-    pixmap.fill (FOREGROUND_COLOR);
+    pixmap.fill(BACKGROUND_COLOR);
     QPainter painter(&pixmap);
-    QImage image(":/png");
+    QImage image("C:/Users/ASUS/Desktop/lab02/png/1");
     QRect targetRect(0,0,20,20);
     QRect sourceRect = image.rect();
     painter.drawImage(targetRect,image,sourceRect);

@@ -129,6 +129,21 @@ void CenterFrame::createUserCommandArea()
     btnDiamond->setIcon (QIcon(p));
     connect(btnDiamond,&QPushButton::clicked,this,&CenterFrame::on_btnDiamondClicked);
 
+    //图片按钮
+    btnDrawpng = new QPushButton(group);
+    btnDrawpng->setToolTip("绘制图片");
+    btnDrawpng->setCheckable(true);
+    btnDrawpng->setIconSize(p.size());
+
+    p.fill(BACKGROUND_COLOR);
+    QImage image("C:/Users/ASUS/Desktop/lab02/png/1");
+    QRect targetRect(0,0,p.size().width(),p.size().height());
+    QRect sourceRect =image.rect();
+    painter.drawImage(targetRect,image,sourceRect);
+    btnDrawpng->setIcon (QIcon(p));
+    connect(btnDrawpng,&QPushButton::clicked,this, &CenterFrame::on_btnDrawpngClicked);
+
+
 
     // 选项Group布局
     QGridLayout *gridLayout = new QGridLayout();
@@ -138,6 +153,7 @@ void CenterFrame::createUserCommandArea()
     gridLayout->addWidget(btnLine,1,1);
     gridLayout->addWidget(btnText,2,0);
     gridLayout->addWidget(btnDiamond,2,1);
+    gridLayout->addWidget(btnDrawpng,3,0);
     gridLayout->setMargin(3);
     gridLayout->setSpacing(3);
     group->setLayout(gridLayout);
@@ -235,6 +251,9 @@ void CenterFrame::updateButtonStatus()
     case ST::Diamond:
         btnDiamond->setChecked(true);
         break;
+    case ST::png:
+        btnDrawpng->setChecked(true);
+        break;
     default:
         break;
     }
@@ -320,6 +339,20 @@ void CenterFrame::on_btnTextClicked()
         drawWidget->setShapeType(ST::Text);
         updateButtonStatus();
     }else{
+        drawWidget->setShapeType(ST::None);
+    }
+}
+
+void CenterFrame::on_btnDrawpngClicked()
+{
+    if(btnDrawpng->isChecked())
+    {
+        drawWidget->setShapeType(ST::png);
+        drawWidget->drawpng();
+        updateButtonStatus();
+    }
+    else
+    {
         drawWidget->setShapeType(ST::None);
     }
 }

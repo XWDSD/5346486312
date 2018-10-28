@@ -2,6 +2,9 @@
 #include <QMouseEvent>
 #include <QPen>
 #include <QMessageBox>
+#include <QString>
+#include <QFileDialog>
+#include <QMessageBox>
 
 
 DrawWidget::DrawWidget(QWidget *parent) : QWidget(parent)
@@ -106,6 +109,27 @@ void DrawWidget::resizeEvent (QResizeEvent *event)
     QWidget::resizeEvent(event);
 }
 
+void DrawWidget::drawpng()
+{
+
+    QString open_fileName;  //获取文件路径
+    open_fileName = QFileDialog::getOpenFileName(this,tr("选择图片"), ".",tr("Image Files (*.png *.jpg *.bmp)"));
+
+    if(open_fileName.isEmpty())
+    {
+        QMessageBox mesg;
+        mesg.warning(this,"警告","没有选择图片");
+        return;
+    }
+    //绘制选择的图片
+    pix->load(open_fileName);
+    QPixmap *newPix = new QPixmap(size());
+    newPix->fill(BACKGROUND_COLOR);
+    QPainter p(newPix);
+    p.drawPixmap (QPoint((width()-pix->width())/2,(height()-pix->width())/2), *pix);
+    delete pix;
+    pix = newPix;
+}
 
 void DrawWidget::clear ()
 {
@@ -191,7 +215,6 @@ QRectF DrawWidget::textRect(const QPointF ptStart, const QPointF ptEnd, QString 
 
     return rect;
 }
-
 
 
 void DrawWidget::drawShape(const QPointF ptStart,const QPointF ptEnd,const ST::ShapeType drawType)

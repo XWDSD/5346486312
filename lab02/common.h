@@ -9,6 +9,7 @@ enum ShapeType {
     Triangle     = 0x01<<3,
     Diamond      = 0x01<<4,
     Text         = 0x01<<5,
+    png          = 0x01<<6,
     TypeMask     = 0x0f
 };
 }

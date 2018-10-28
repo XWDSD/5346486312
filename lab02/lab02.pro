@@ -34,3 +34,6 @@ HEADERS += \
     centerframe.h \
     common.h \
     drawwidget.h
+
+RESOURCES += \
+    png.qrc
