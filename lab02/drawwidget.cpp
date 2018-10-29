@@ -117,8 +117,6 @@ void DrawWidget::drawpng()
 
     if(open_fileName.isEmpty())
     {
-        QMessageBox mesg;
-        mesg.warning(this,"警告","没有选择图片");
         //警告窗口
         QMessageBox a;
         a.warning(this,"警告","没有选择图片");
