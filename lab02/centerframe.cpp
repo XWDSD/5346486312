@@ -136,7 +136,7 @@ void CenterFrame::createUserCommandArea()
     btnDrawpng->setIconSize(p.size());
 
     p.fill(BACKGROUND_COLOR);
-    QImage image("C:/Users/ASUS/Desktop/lab02/png/1");
+    QImage image("C:/Users/ASUS/Desktop/lab02/png/1");         //按钮图片位置调用
     QRect targetRect(0,0,p.size().width(),p.size().height());
     QRect sourceRect =image.rect();
     painter.drawImage(targetRect,image,sourceRect);

@@ -119,6 +119,9 @@ void DrawWidget::drawpng()
     {
         QMessageBox mesg;
         mesg.warning(this,"警告","没有选择图片");
+        //警告窗口
+        QMessageBox a;
+        a.warning(this,"警告","没有选择图片");
         return;
     }
     //绘制选择的图片
@@ -126,7 +129,7 @@ void DrawWidget::drawpng()
     QPixmap *newPix = new QPixmap(size());
     newPix->fill(BACKGROUND_COLOR);
     QPainter p(newPix);
-    p.drawPixmap (QPoint((width()-pix->width())/2,(height()-pix->width())/2), *pix);
+    p.drawPixmap (QPoint((width()-pix->width())/2,(height()-pix->width())/2), *pix);    //水平垂直居中
     delete pix;
     pix = newPix;
 }
