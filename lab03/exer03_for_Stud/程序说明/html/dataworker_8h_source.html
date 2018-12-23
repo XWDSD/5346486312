@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>实验三：网络数据获取与显示: dataworker.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">实验三：网络数据获取与显示
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="namespaces.html"><span>命名空间</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li class="current"><a href="files.html"><span>文件</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>文件列表</span></a></li>
+      <li><a href="globals.html"><span>文件成员</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">dataworker.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="dataworker_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef DATAWORKER_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define DATAWORKER_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QObject&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QDateTime&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">class </span>QNetworkAccessManager;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">class </span>QNetworkReply;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classdata_worker.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="classdata_worker.html">dataWorker</a> : <span class="keyword">public</span> QObject</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classdata_worker.html#af90663713a9facd79f0feefb4a47a56a">dataWorker</a>(QObject *parent = 0);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classdata_worker.html#af90663713a9facd79f0feefb4a47a56a">dataWorker</a>(QString date, QObject *parent = 0);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classdata_worker.html#a627c177f17c7106a66e60e22b7d91e83">setRequestDate</a>(QString newDate);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    QString <a class="code" href="classdata_worker.html#a151032ff6386fc8bff1d459264c7bea3">requestDate</a>();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classdata_worker.html#a05e1ec0cee2ff2231b8acfa98e4759d4">doRequest</a>();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    QString <a class="code" href="classdata_worker.html#a811df34883eb9810781139db6579acd8">requestUrl</a>();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classdata_worker.html#a32cb0331d21490e092d87957ce1491f0">httpGet</a>(QString url);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classdata_worker.html#aae497132e6b8d83d918cf39ca9030424">initNetwork</a>();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classdata_worker.html#a9d28389119808b8dbc19b1298f4d4337">parseHTML</a>(<span class="keyword">const</span> QString sourceText);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classdata_worker.html#a296383681981e1d5706fa9aeec1b68a6">parseData</a>(<span class="keyword">const</span> QString sourceText);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classdata_worker.html#a471db61dcb663c82cfa0503a848b74b1">exportDataToFile</a>(<span class="keyword">const</span> QString dataText);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">protected</span> slots:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classdata_worker.html#a380cd2d367704c4cf947b02a4b5061a5">httpsFinished</a>(QNetworkReply *reply);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classdata_worker.html#acb950e7ea55eeb1791115af76c417a7d">   40</a></span>&#160;    QNetworkAccessManager *<a class="code" href="classdata_worker.html#acb950e7ea55eeb1791115af76c417a7d">manager</a>;         </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classdata_worker.html#af4b6c2f6fba95121b983fd96abdd57dd">   41</a></span>&#160;    QString <a class="code" href="classdata_worker.html#af4b6c2f6fba95121b983fd96abdd57dd">_requestDate</a>;                   </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classdata_worker.html#a7383de5f88433e13f168e2aa08318a9e">   43</a></span>&#160;    QList&lt;QDateTime&gt; <a class="code" href="classdata_worker.html#a7383de5f88433e13f168e2aa08318a9e">dataDate</a>;              </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classdata_worker.html#accc61a7c110367f4ba2da4a7d3ba25e1">   44</a></span>&#160;    QList&lt;qreal&gt; <a class="code" href="classdata_worker.html#accc61a7c110367f4ba2da4a7d3ba25e1">dataHigh</a>;                  </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classdata_worker.html#a7a15ecce0f884a7c0e0610c20540841b">   45</a></span>&#160;    QList&lt;qreal&gt; <a class="code" href="classdata_worker.html#a7a15ecce0f884a7c0e0610c20540841b">dataLow</a>;                   </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classdata_worker.html#a5cf5b0506b1ccc3e98782ad71f7baf50">   47</a></span>&#160;    <span class="keyword">const</span> QString <a class="code" href="classdata_worker.html#a5cf5b0506b1ccc3e98782ad71f7baf50">splitter</a>;                 </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classdata_worker.html#a60d4fa059449bfc571fdb9b82b816f27">   48</a></span>&#160;    <span class="keyword">const</span> QString <a class="code" href="classdata_worker.html#a60d4fa059449bfc571fdb9b82b816f27">dataPath</a>;                 </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;signals:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classdata_worker.html#ad95fb5edbe1b6c80287f6645b0c6d167">dataParseFinished</a>(QList&lt;QDateTime&gt; date,QList&lt;qreal&gt; high, QList&lt;qreal&gt; low);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classdata_worker.html#a2817dfae514b1922b640745423ad7952">httpRequestError</a>(QString error);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classdata_worker.html#a379c30d2d856e7f684f3042786a77733">dataParseError</a>(QString error);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keyword">public</span> slots:</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;};</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#endif // DATAWORKER_H</span></div>
+<div class="ttc" id="classdata_worker_html_a05e1ec0cee2ff2231b8acfa98e4759d4"><div class="ttname"><a href="classdata_worker.html#a05e1ec0cee2ff2231b8acfa98e4759d4">dataWorker::doRequest</a></div><div class="ttdeci">void doRequest()</div><div class="ttdoc">开始发送请求 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8cpp_source.html#l00062">dataworker.cpp:62</a></div></div>
+<div class="ttc" id="classdata_worker_html_ad95fb5edbe1b6c80287f6645b0c6d167"><div class="ttname"><a href="classdata_worker.html#ad95fb5edbe1b6c80287f6645b0c6d167">dataWorker::dataParseFinished</a></div><div class="ttdeci">void dataParseFinished(QList&lt; QDateTime &gt; date, QList&lt; qreal &gt; high, QList&lt; qreal &gt; low)</div><div class="ttdoc">数据解析完成信号 </div></div>
+<div class="ttc" id="classdata_worker_html"><div class="ttname"><a href="classdata_worker.html">dataWorker</a></div><div class="ttdoc">dataWorker类 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8h_source.html#l00017">dataworker.h:17</a></div></div>
+<div class="ttc" id="classdata_worker_html_a627c177f17c7106a66e60e22b7d91e83"><div class="ttname"><a href="classdata_worker.html#a627c177f17c7106a66e60e22b7d91e83">dataWorker::setRequestDate</a></div><div class="ttdeci">void setRequestDate(QString newDate)</div><div class="ttdoc">设置请求年月的setter函数 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8cpp_source.html#l00041">dataworker.cpp:41</a></div></div>
+<div class="ttc" id="classdata_worker_html_a60d4fa059449bfc571fdb9b82b816f27"><div class="ttname"><a href="classdata_worker.html#a60d4fa059449bfc571fdb9b82b816f27">dataWorker::dataPath</a></div><div class="ttdeci">const QString dataPath</div><div class="ttdoc">数据保存路径 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8h_source.html#l00048">dataworker.h:48</a></div></div>
+<div class="ttc" id="classdata_worker_html_accc61a7c110367f4ba2da4a7d3ba25e1"><div class="ttname"><a href="classdata_worker.html#accc61a7c110367f4ba2da4a7d3ba25e1">dataWorker::dataHigh</a></div><div class="ttdeci">QList&lt; qreal &gt; dataHigh</div><div class="ttdoc">最高温度 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8h_source.html#l00044">dataworker.h:44</a></div></div>
+<div class="ttc" id="classdata_worker_html_a296383681981e1d5706fa9aeec1b68a6"><div class="ttname"><a href="classdata_worker.html#a296383681981e1d5706fa9aeec1b68a6">dataWorker::parseData</a></div><div class="ttdeci">void parseData(const QString sourceText)</div><div class="ttdoc">解析数据 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8cpp_source.html#l00154">dataworker.cpp:154</a></div></div>
+<div class="ttc" id="classdata_worker_html_a32cb0331d21490e092d87957ce1491f0"><div class="ttname"><a href="classdata_worker.html#a32cb0331d21490e092d87957ce1491f0">dataWorker::httpGet</a></div><div class="ttdeci">void httpGet(QString url)</div><div class="ttdoc">执行http请求（GET方法） </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8cpp_source.html#l00203">dataworker.cpp:203</a></div></div>
+<div class="ttc" id="classdata_worker_html_acb950e7ea55eeb1791115af76c417a7d"><div class="ttname"><a href="classdata_worker.html#acb950e7ea55eeb1791115af76c417a7d">dataWorker::manager</a></div><div class="ttdeci">QNetworkAccessManager * manager</div><div class="ttdoc">网络访问管理类对象 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8h_source.html#l00040">dataworker.h:40</a></div></div>
+<div class="ttc" id="classdata_worker_html_af90663713a9facd79f0feefb4a47a56a"><div class="ttname"><a href="classdata_worker.html#af90663713a9facd79f0feefb4a47a56a">dataWorker::dataWorker</a></div><div class="ttdeci">dataWorker(QObject *parent=0)</div><div class="ttdoc">dataWorker::dataWorker 构造函数 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8cpp_source.html#l00013">dataworker.cpp:13</a></div></div>
+<div class="ttc" id="classdata_worker_html_a151032ff6386fc8bff1d459264c7bea3"><div class="ttname"><a href="classdata_worker.html#a151032ff6386fc8bff1d459264c7bea3">dataWorker::requestDate</a></div><div class="ttdeci">QString requestDate()</div><div class="ttdoc">getter函数，获得当前的年月 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8cpp_source.html#l00051">dataworker.cpp:51</a></div></div>
+<div class="ttc" id="classdata_worker_html_a9d28389119808b8dbc19b1298f4d4337"><div class="ttname"><a href="classdata_worker.html#a9d28389119808b8dbc19b1298f4d4337">dataWorker::parseHTML</a></div><div class="ttdeci">void parseHTML(const QString sourceText)</div><div class="ttdoc">解析HTML </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8cpp_source.html#l00121">dataworker.cpp:121</a></div></div>
+<div class="ttc" id="classdata_worker_html_a5cf5b0506b1ccc3e98782ad71f7baf50"><div class="ttname"><a href="classdata_worker.html#a5cf5b0506b1ccc3e98782ad71f7baf50">dataWorker::splitter</a></div><div class="ttdeci">const QString splitter</div><div class="ttdoc">数据分隔符 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8h_source.html#l00047">dataworker.h:47</a></div></div>
+<div class="ttc" id="classdata_worker_html_a471db61dcb663c82cfa0503a848b74b1"><div class="ttname"><a href="classdata_worker.html#a471db61dcb663c82cfa0503a848b74b1">dataWorker::exportDataToFile</a></div><div class="ttdeci">void exportDataToFile(const QString dataText)</div><div class="ttdoc">将数据输出为文件 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8cpp_source.html#l00179">dataworker.cpp:179</a></div></div>
+<div class="ttc" id="classdata_worker_html_a7a15ecce0f884a7c0e0610c20540841b"><div class="ttname"><a href="classdata_worker.html#a7a15ecce0f884a7c0e0610c20540841b">dataWorker::dataLow</a></div><div class="ttdeci">QList&lt; qreal &gt; dataLow</div><div class="ttdoc">最低温度 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8h_source.html#l00045">dataworker.h:45</a></div></div>
+<div class="ttc" id="classdata_worker_html_a380cd2d367704c4cf947b02a4b5061a5"><div class="ttname"><a href="classdata_worker.html#a380cd2d367704c4cf947b02a4b5061a5">dataWorker::httpsFinished</a></div><div class="ttdeci">void httpsFinished(QNetworkReply *reply)</div><div class="ttdoc">网络请求完成finished信号的响应槽函数 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8cpp_source.html#l00215">dataworker.cpp:215</a></div></div>
+<div class="ttc" id="classdata_worker_html_af4b6c2f6fba95121b983fd96abdd57dd"><div class="ttname"><a href="classdata_worker.html#af4b6c2f6fba95121b983fd96abdd57dd">dataWorker::_requestDate</a></div><div class="ttdeci">QString _requestDate</div><div class="ttdoc">请求年月 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8h_source.html#l00041">dataworker.h:41</a></div></div>
+<div class="ttc" id="classdata_worker_html_a2817dfae514b1922b640745423ad7952"><div class="ttname"><a href="classdata_worker.html#a2817dfae514b1922b640745423ad7952">dataWorker::httpRequestError</a></div><div class="ttdeci">void httpRequestError(QString error)</div><div class="ttdoc">httpRequestError </div></div>
+<div class="ttc" id="classdata_worker_html_a811df34883eb9810781139db6579acd8"><div class="ttname"><a href="classdata_worker.html#a811df34883eb9810781139db6579acd8">dataWorker::requestUrl</a></div><div class="ttdeci">QString requestUrl()</div><div class="ttdoc">构造实际请求链接 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8cpp_source.html#l00089">dataworker.cpp:89</a></div></div>
+<div class="ttc" id="classdata_worker_html_a379c30d2d856e7f684f3042786a77733"><div class="ttname"><a href="classdata_worker.html#a379c30d2d856e7f684f3042786a77733">dataWorker::dataParseError</a></div><div class="ttdeci">void dataParseError(QString error)</div><div class="ttdoc">dataParseError </div></div>
+<div class="ttc" id="classdata_worker_html_aae497132e6b8d83d918cf39ca9030424"><div class="ttname"><a href="classdata_worker.html#aae497132e6b8d83d918cf39ca9030424">dataWorker::initNetwork</a></div><div class="ttdeci">void initNetwork()</div><div class="ttdoc">初始化网络请求管理类QNetworkAccessManager类 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8cpp_source.html#l00102">dataworker.cpp:102</a></div></div>
+<div class="ttc" id="classdata_worker_html_a7383de5f88433e13f168e2aa08318a9e"><div class="ttname"><a href="classdata_worker.html#a7383de5f88433e13f168e2aa08318a9e">dataWorker::dataDate</a></div><div class="ttdeci">QList&lt; QDateTime &gt; dataDate</div><div class="ttdoc">日期 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8h_source.html#l00043">dataworker.h:43</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
+</body>
+</html>

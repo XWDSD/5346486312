@@ -1,0 +1,893 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>实验三：网络数据获取与显示: dataWorker类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">实验三：网络数据获取与显示
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="namespaces.html"><span>命名空间</span></a></li>
+      <li class="current"><a href="annotated.html"><span>类</span></a></li>
+      <li><a href="files.html"><span>文件</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>类列表</span></a></li>
+      <li><a href="classes.html"><span>类索引</span></a></li>
+      <li><a href="hierarchy.html"><span>类继承关系</span></a></li>
+      <li><a href="functions.html"><span>类成员</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#signals">信号</a> &#124;
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pro-slots">Protected 槽</a> &#124;
+<a href="#pro-methods">Protected 成员函数</a> &#124;
+<a href="#pri-attribs">Private 属性</a> &#124;
+<a href="classdata_worker-members.html">所有成员列表</a>  </div>
+  <div class="headertitle">
+<div class="title">dataWorker类 参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>dataWorker类  
+ <a href="classdata_worker.html#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="dataworker_8h_source.html">dataworker.h</a>&gt;</code></p>
+<div class="dynheader">
+类 dataWorker 继承关系图:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classdata_worker.png" usemap="#dataWorker_map" alt=""/>
+  <map id="dataWorker_map" name="dataWorker_map">
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
+信号</h2></td></tr>
+<tr class="memitem:ad95fb5edbe1b6c80287f6645b0c6d167"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_worker.html#ad95fb5edbe1b6c80287f6645b0c6d167">dataParseFinished</a> (QList&lt; QDateTime &gt; date, QList&lt; qreal &gt; high, QList&lt; qreal &gt; low)</td></tr>
+<tr class="memdesc:ad95fb5edbe1b6c80287f6645b0c6d167"><td class="mdescLeft">&#160;</td><td class="mdescRight">数据解析完成信号  <a href="#ad95fb5edbe1b6c80287f6645b0c6d167">更多...</a><br /></td></tr>
+<tr class="separator:ad95fb5edbe1b6c80287f6645b0c6d167"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2817dfae514b1922b640745423ad7952"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_worker.html#a2817dfae514b1922b640745423ad7952">httpRequestError</a> (QString error)</td></tr>
+<tr class="memdesc:a2817dfae514b1922b640745423ad7952"><td class="mdescLeft">&#160;</td><td class="mdescRight">httpRequestError  <a href="#a2817dfae514b1922b640745423ad7952">更多...</a><br /></td></tr>
+<tr class="separator:a2817dfae514b1922b640745423ad7952"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a379c30d2d856e7f684f3042786a77733"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_worker.html#a379c30d2d856e7f684f3042786a77733">dataParseError</a> (QString error)</td></tr>
+<tr class="memdesc:a379c30d2d856e7f684f3042786a77733"><td class="mdescLeft">&#160;</td><td class="mdescRight">dataParseError  <a href="#a379c30d2d856e7f684f3042786a77733">更多...</a><br /></td></tr>
+<tr class="separator:a379c30d2d856e7f684f3042786a77733"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:af90663713a9facd79f0feefb4a47a56a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_worker.html#af90663713a9facd79f0feefb4a47a56a">dataWorker</a> (QObject *parent=0)</td></tr>
+<tr class="memdesc:af90663713a9facd79f0feefb4a47a56a"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classdata_worker.html#af90663713a9facd79f0feefb4a47a56a" title="dataWorker::dataWorker 构造函数 ">dataWorker::dataWorker</a> 构造函数  <a href="#af90663713a9facd79f0feefb4a47a56a">更多...</a><br /></td></tr>
+<tr class="separator:af90663713a9facd79f0feefb4a47a56a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa6da1a70a0b51d1fc828e3a9ecfea18"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_worker.html#aaa6da1a70a0b51d1fc828e3a9ecfea18">dataWorker</a> (QString date, QObject *parent=0)</td></tr>
+<tr class="memdesc:aaa6da1a70a0b51d1fc828e3a9ecfea18"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classdata_worker.html#af90663713a9facd79f0feefb4a47a56a" title="dataWorker::dataWorker 构造函数 ">dataWorker::dataWorker</a>  <a href="#aaa6da1a70a0b51d1fc828e3a9ecfea18">更多...</a><br /></td></tr>
+<tr class="separator:aaa6da1a70a0b51d1fc828e3a9ecfea18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a627c177f17c7106a66e60e22b7d91e83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_worker.html#a627c177f17c7106a66e60e22b7d91e83">setRequestDate</a> (QString newDate)</td></tr>
+<tr class="memdesc:a627c177f17c7106a66e60e22b7d91e83"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置请求年月的setter函数  <a href="#a627c177f17c7106a66e60e22b7d91e83">更多...</a><br /></td></tr>
+<tr class="separator:a627c177f17c7106a66e60e22b7d91e83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a151032ff6386fc8bff1d459264c7bea3"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_worker.html#a151032ff6386fc8bff1d459264c7bea3">requestDate</a> ()</td></tr>
+<tr class="memdesc:a151032ff6386fc8bff1d459264c7bea3"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter函数，获得当前的年月  <a href="#a151032ff6386fc8bff1d459264c7bea3">更多...</a><br /></td></tr>
+<tr class="separator:a151032ff6386fc8bff1d459264c7bea3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05e1ec0cee2ff2231b8acfa98e4759d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_worker.html#a05e1ec0cee2ff2231b8acfa98e4759d4">doRequest</a> ()</td></tr>
+<tr class="memdesc:a05e1ec0cee2ff2231b8acfa98e4759d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">开始发送请求  <a href="#a05e1ec0cee2ff2231b8acfa98e4759d4">更多...</a><br /></td></tr>
+<tr class="separator:a05e1ec0cee2ff2231b8acfa98e4759d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-slots"></a>
+Protected 槽</h2></td></tr>
+<tr class="memitem:a380cd2d367704c4cf947b02a4b5061a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_worker.html#a380cd2d367704c4cf947b02a4b5061a5">httpsFinished</a> (QNetworkReply *reply)</td></tr>
+<tr class="memdesc:a380cd2d367704c4cf947b02a4b5061a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">网络请求完成finished信号的响应槽函数  <a href="#a380cd2d367704c4cf947b02a4b5061a5">更多...</a><br /></td></tr>
+<tr class="separator:a380cd2d367704c4cf947b02a4b5061a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected 成员函数</h2></td></tr>
+<tr class="memitem:a811df34883eb9810781139db6579acd8"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_worker.html#a811df34883eb9810781139db6579acd8">requestUrl</a> ()</td></tr>
+<tr class="memdesc:a811df34883eb9810781139db6579acd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">构造实际请求链接  <a href="#a811df34883eb9810781139db6579acd8">更多...</a><br /></td></tr>
+<tr class="separator:a811df34883eb9810781139db6579acd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32cb0331d21490e092d87957ce1491f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_worker.html#a32cb0331d21490e092d87957ce1491f0">httpGet</a> (QString url)</td></tr>
+<tr class="memdesc:a32cb0331d21490e092d87957ce1491f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">执行http请求（GET方法）  <a href="#a32cb0331d21490e092d87957ce1491f0">更多...</a><br /></td></tr>
+<tr class="separator:a32cb0331d21490e092d87957ce1491f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae497132e6b8d83d918cf39ca9030424"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_worker.html#aae497132e6b8d83d918cf39ca9030424">initNetwork</a> ()</td></tr>
+<tr class="memdesc:aae497132e6b8d83d918cf39ca9030424"><td class="mdescLeft">&#160;</td><td class="mdescRight">初始化网络请求管理类QNetworkAccessManager类  <a href="#aae497132e6b8d83d918cf39ca9030424">更多...</a><br /></td></tr>
+<tr class="separator:aae497132e6b8d83d918cf39ca9030424"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d28389119808b8dbc19b1298f4d4337"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_worker.html#a9d28389119808b8dbc19b1298f4d4337">parseHTML</a> (const QString sourceText)</td></tr>
+<tr class="memdesc:a9d28389119808b8dbc19b1298f4d4337"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析HTML  <a href="#a9d28389119808b8dbc19b1298f4d4337">更多...</a><br /></td></tr>
+<tr class="separator:a9d28389119808b8dbc19b1298f4d4337"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a296383681981e1d5706fa9aeec1b68a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_worker.html#a296383681981e1d5706fa9aeec1b68a6">parseData</a> (const QString sourceText)</td></tr>
+<tr class="memdesc:a296383681981e1d5706fa9aeec1b68a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">解析数据  <a href="#a296383681981e1d5706fa9aeec1b68a6">更多...</a><br /></td></tr>
+<tr class="separator:a296383681981e1d5706fa9aeec1b68a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a471db61dcb663c82cfa0503a848b74b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_worker.html#a471db61dcb663c82cfa0503a848b74b1">exportDataToFile</a> (const QString dataText)</td></tr>
+<tr class="memdesc:a471db61dcb663c82cfa0503a848b74b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">将数据输出为文件  <a href="#a471db61dcb663c82cfa0503a848b74b1">更多...</a><br /></td></tr>
+<tr class="separator:a471db61dcb663c82cfa0503a848b74b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private 属性</h2></td></tr>
+<tr class="memitem:acb950e7ea55eeb1791115af76c417a7d"><td class="memItemLeft" align="right" valign="top">QNetworkAccessManager *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_worker.html#acb950e7ea55eeb1791115af76c417a7d">manager</a></td></tr>
+<tr class="memdesc:acb950e7ea55eeb1791115af76c417a7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">网络访问管理类对象  <a href="#acb950e7ea55eeb1791115af76c417a7d">更多...</a><br /></td></tr>
+<tr class="separator:acb950e7ea55eeb1791115af76c417a7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4b6c2f6fba95121b983fd96abdd57dd"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_worker.html#af4b6c2f6fba95121b983fd96abdd57dd">_requestDate</a></td></tr>
+<tr class="memdesc:af4b6c2f6fba95121b983fd96abdd57dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">请求年月  <a href="#af4b6c2f6fba95121b983fd96abdd57dd">更多...</a><br /></td></tr>
+<tr class="separator:af4b6c2f6fba95121b983fd96abdd57dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7383de5f88433e13f168e2aa08318a9e"><td class="memItemLeft" align="right" valign="top">QList&lt; QDateTime &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_worker.html#a7383de5f88433e13f168e2aa08318a9e">dataDate</a></td></tr>
+<tr class="memdesc:a7383de5f88433e13f168e2aa08318a9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">日期  <a href="#a7383de5f88433e13f168e2aa08318a9e">更多...</a><br /></td></tr>
+<tr class="separator:a7383de5f88433e13f168e2aa08318a9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accc61a7c110367f4ba2da4a7d3ba25e1"><td class="memItemLeft" align="right" valign="top">QList&lt; qreal &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_worker.html#accc61a7c110367f4ba2da4a7d3ba25e1">dataHigh</a></td></tr>
+<tr class="memdesc:accc61a7c110367f4ba2da4a7d3ba25e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">最高温度  <a href="#accc61a7c110367f4ba2da4a7d3ba25e1">更多...</a><br /></td></tr>
+<tr class="separator:accc61a7c110367f4ba2da4a7d3ba25e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a15ecce0f884a7c0e0610c20540841b"><td class="memItemLeft" align="right" valign="top">QList&lt; qreal &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_worker.html#a7a15ecce0f884a7c0e0610c20540841b">dataLow</a></td></tr>
+<tr class="memdesc:a7a15ecce0f884a7c0e0610c20540841b"><td class="mdescLeft">&#160;</td><td class="mdescRight">最低温度  <a href="#a7a15ecce0f884a7c0e0610c20540841b">更多...</a><br /></td></tr>
+<tr class="separator:a7a15ecce0f884a7c0e0610c20540841b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cf5b0506b1ccc3e98782ad71f7baf50"><td class="memItemLeft" align="right" valign="top">const QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_worker.html#a5cf5b0506b1ccc3e98782ad71f7baf50">splitter</a></td></tr>
+<tr class="memdesc:a5cf5b0506b1ccc3e98782ad71f7baf50"><td class="mdescLeft">&#160;</td><td class="mdescRight">数据分隔符  <a href="#a5cf5b0506b1ccc3e98782ad71f7baf50">更多...</a><br /></td></tr>
+<tr class="separator:a5cf5b0506b1ccc3e98782ad71f7baf50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60d4fa059449bfc571fdb9b82b816f27"><td class="memItemLeft" align="right" valign="top">const QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdata_worker.html#a60d4fa059449bfc571fdb9b82b816f27">dataPath</a></td></tr>
+<tr class="memdesc:a60d4fa059449bfc571fdb9b82b816f27"><td class="mdescLeft">&#160;</td><td class="mdescRight">数据保存路径  <a href="#a60d4fa059449bfc571fdb9b82b816f27">更多...</a><br /></td></tr>
+<tr class="separator:a60d4fa059449bfc571fdb9b82b816f27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>dataWorker类 </p>
+<p>dataWorker类负责数据的获取以及解析， 当数据解析完成后，发送dataParseFinished信号， </p>
+
+<p>在文件 <a class="el" href="dataworker_8h_source.html">dataworker.h</a> 第 <a class="el" href="dataworker_8h_source.html#l00017">17</a> 行定义.</p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a class="anchor" id="af90663713a9facd79f0feefb4a47a56a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">dataWorker::dataWorker </td>
+          <td>(</td>
+          <td class="paramtype">QObject *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>0</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classdata_worker.html#af90663713a9facd79f0feefb4a47a56a" title="dataWorker::dataWorker 构造函数 ">dataWorker::dataWorker</a> 构造函数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>默认构造函数，创建网络访问管理类QNetworkAccessManager对象<br />
+ 并连接相应的信号与槽。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>在文件 <a class="el" href="dataworker_8cpp_source.html">dataworker.cpp</a> 第 <a class="el" href="dataworker_8cpp_source.html#l00013">13</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaa6da1a70a0b51d1fc828e3a9ecfea18"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">dataWorker::dataWorker </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>date</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QObject *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classdata_worker.html#af90663713a9facd79f0feefb4a47a56a" title="dataWorker::dataWorker 构造函数 ">dataWorker::dataWorker</a> </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">date</td><td>需要获取数据的年和月份 </td></tr>
+    <tr><td class="paramname">parent</td><td>重载构造函数，带一个参量 <em>date</em>, </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>在文件 <a class="el" href="dataworker_8cpp_source.html">dataworker.cpp</a> 第 <a class="el" href="dataworker_8cpp_source.html#l00026">26</a> 行定义.</p>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a class="anchor" id="a379c30d2d856e7f684f3042786a77733"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dataWorker::dataParseError </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>error</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>dataParseError </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">error</td><td>： 错误信息</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>数据解析错误信号，当出现使用QXmlStreamReader解析数据错误时，发送该信号 </p>
+
+</div>
+</div>
+<a class="anchor" id="ad95fb5edbe1b6c80287f6645b0c6d167"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dataWorker::dataParseFinished </td>
+          <td>(</td>
+          <td class="paramtype">QList&lt; QDateTime &gt;&#160;</td>
+          <td class="paramname"><em>date</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QList&lt; qreal &gt;&#160;</td>
+          <td class="paramname"><em>high</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QList&lt; qreal &gt;&#160;</td>
+          <td class="paramname"><em>low</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>数据解析完成信号 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">date</td><td>所获取数据年月列表 </td></tr>
+    <tr><td class="paramname">high</td><td>所获取数据最高温度列表 </td></tr>
+    <tr><td class="paramname">low</td><td>所获取数据最低温度列表</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>该信号在数据解析完成，将解析的数据以3个列表（QList）的形式作为信号参数发射，<br />
+ 提醒界面开始更新图表数据。 </p>
+
+</div>
+</div>
+<a class="anchor" id="a05e1ec0cee2ff2231b8acfa98e4759d4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dataWorker::doRequest </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>开始发送请求 </p>
+<p>该函数首先检查是否存在本地文件，如果有则读取本地数据文件；<br />
+ 否则，发起http请求，从网络获取数据。 </p>
+
+<p>在文件 <a class="el" href="dataworker_8cpp_source.html">dataworker.cpp</a> 第 <a class="el" href="dataworker_8cpp_source.html#l00062">62</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="a471db61dcb663c82cfa0503a848b74b1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dataWorker::exportDataToFile </td>
+          <td>(</td>
+          <td class="paramtype">const QString&#160;</td>
+          <td class="paramname"><em>dataText</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>将数据输出为文件 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dataText</td><td>需要输出的数据文本</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>该类使用QFile和QTextStream类实现文本的保存。 </p>
+
+<p>在文件 <a class="el" href="dataworker_8cpp_source.html">dataworker.cpp</a> 第 <a class="el" href="dataworker_8cpp_source.html#l00179">179</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="a32cb0331d21490e092d87957ce1491f0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dataWorker::httpGet </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>url</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>执行http请求（GET方法） </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">url</td><td>请求目标网址 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>在文件 <a class="el" href="dataworker_8cpp_source.html">dataworker.cpp</a> 第 <a class="el" href="dataworker_8cpp_source.html#l00203">203</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2817dfae514b1922b640745423ad7952"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dataWorker::httpRequestError </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>error</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>httpRequestError </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">error</td><td>： 错误信息</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>http请求错误信号，当出现http请求错误时，发送该信号 </p>
+
+</div>
+</div>
+<a class="anchor" id="a380cd2d367704c4cf947b02a4b5061a5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dataWorker::httpsFinished </td>
+          <td>(</td>
+          <td class="paramtype">QNetworkReply *&#160;</td>
+          <td class="paramname"><em>reply</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>网络请求完成finished信号的响应槽函数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reply</td><td>web服务器响应 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>在文件 <a class="el" href="dataworker_8cpp_source.html">dataworker.cpp</a> 第 <a class="el" href="dataworker_8cpp_source.html#l00215">215</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="aae497132e6b8d83d918cf39ca9030424"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dataWorker::initNetwork </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>初始化网络请求管理类QNetworkAccessManager类 </p>
+<p>该函数创建一个QNetworkAccessManager类的指针对象，并连接相应的信号和槽。 </p>
+
+<p>在文件 <a class="el" href="dataworker_8cpp_source.html">dataworker.cpp</a> 第 <a class="el" href="dataworker_8cpp_source.html#l00102">102</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="a296383681981e1d5706fa9aeec1b68a6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dataWorker::parseData </td>
+          <td>(</td>
+          <td class="paramtype">const QString&#160;</td>
+          <td class="paramname"><em>sourceText</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>解析数据 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sourceText</td><td>需要解析的文本</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>该函数处理parseHTML函数提取的文本，对其按照数据格式进行分割。 <br />
+ 本程序只需使用前三列数据，在解析时每行文本只需使用前三个数据即可。<br />
+ 数据解析完成后，发送dataParseFinished信号通知界面进行数据更新。<br />
+ </p>
+
+<p>在文件 <a class="el" href="dataworker_8cpp_source.html">dataworker.cpp</a> 第 <a class="el" href="dataworker_8cpp_source.html#l00154">154</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9d28389119808b8dbc19b1298f4d4337"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dataWorker::parseHTML </td>
+          <td>(</td>
+          <td class="paramtype">const QString&#160;</td>
+          <td class="paramname"><em>sourceText</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>解析HTML </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sourceText</td><td>HTML文本</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>该函数使用QXmlStreamReader对HTML文本进行解析。<br />
+ 注意： HTML必须是符合XML规范的文本（标签对完整）<br />
+</p>
+<p>QXmlStreamReader类提供了一个针对良好格式化的基于流方式的XML快速解析器，<br />
+ 适合于实现一次性解析任务（“一次性解析”任务，可以理解为只需读取文档一次，<br />
+ 从头到尾一次性遍历处理XML文档，期间不会有反复的情况）。<br />
+ <br />
+ </p>
+
+<p>在文件 <a class="el" href="dataworker_8cpp_source.html">dataworker.cpp</a> 第 <a class="el" href="dataworker_8cpp_source.html#l00121">121</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="a151032ff6386fc8bff1d459264c7bea3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString dataWorker::requestDate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getter函数，获得当前的年月 </p>
+<dl class="section return"><dt>返回</dt><dd>请求年月 </dd></dl>
+
+<p>在文件 <a class="el" href="dataworker_8cpp_source.html">dataworker.cpp</a> 第 <a class="el" href="dataworker_8cpp_source.html#l00051">51</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="a811df34883eb9810781139db6579acd8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString dataWorker::requestUrl </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>构造实际请求链接 </p>
+<dl class="section return"><dt>返回</dt><dd>数据页面地址</dd></dl>
+<p>该函数将请求年月插入模板中，获得实际数据页面的链接地址。 </p>
+
+<p>在文件 <a class="el" href="dataworker_8cpp_source.html">dataworker.cpp</a> 第 <a class="el" href="dataworker_8cpp_source.html#l00089">89</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="a627c177f17c7106a66e60e22b7d91e83"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dataWorker::setRequestDate </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>newDate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置请求年月的setter函数 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newDate</td><td>新的年月</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>该函数简单的将传入年月做一个处理，删除"-"，<br />
+ 如传入“2016-10”，则转换为“201610”的格式，以符合HTTP请求链接的格式。 </p>
+
+<p>在文件 <a class="el" href="dataworker_8cpp_source.html">dataworker.cpp</a> 第 <a class="el" href="dataworker_8cpp_source.html#l00041">41</a> 行定义.</p>
+
+</div>
+</div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a class="anchor" id="af4b6c2f6fba95121b983fd96abdd57dd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString dataWorker::_requestDate</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>请求年月 </p>
+
+<p>在文件 <a class="el" href="dataworker_8h_source.html">dataworker.h</a> 第 <a class="el" href="dataworker_8h_source.html#l00041">41</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7383de5f88433e13f168e2aa08318a9e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt;QDateTime&gt; dataWorker::dataDate</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>日期 </p>
+
+<p>在文件 <a class="el" href="dataworker_8h_source.html">dataworker.h</a> 第 <a class="el" href="dataworker_8h_source.html#l00043">43</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="accc61a7c110367f4ba2da4a7d3ba25e1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt;qreal&gt; dataWorker::dataHigh</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>最高温度 </p>
+
+<p>在文件 <a class="el" href="dataworker_8h_source.html">dataworker.h</a> 第 <a class="el" href="dataworker_8h_source.html#l00044">44</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7a15ecce0f884a7c0e0610c20540841b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt;qreal&gt; dataWorker::dataLow</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>最低温度 </p>
+
+<p>在文件 <a class="el" href="dataworker_8h_source.html">dataworker.h</a> 第 <a class="el" href="dataworker_8h_source.html#l00045">45</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="a60d4fa059449bfc571fdb9b82b816f27"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QString dataWorker::dataPath</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>数据保存路径 </p>
+
+<p>在文件 <a class="el" href="dataworker_8h_source.html">dataworker.h</a> 第 <a class="el" href="dataworker_8h_source.html#l00048">48</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="acb950e7ea55eeb1791115af76c417a7d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QNetworkAccessManager* dataWorker::manager</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>网络访问管理类对象 </p>
+
+<p>在文件 <a class="el" href="dataworker_8h_source.html">dataworker.h</a> 第 <a class="el" href="dataworker_8h_source.html#l00040">40</a> 行定义.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5cf5b0506b1ccc3e98782ad71f7baf50"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QString dataWorker::splitter</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>数据分隔符 </p>
+
+<p>在文件 <a class="el" href="dataworker_8h_source.html">dataworker.h</a> 第 <a class="el" href="dataworker_8h_source.html#l00047">47</a> 行定义.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li><a class="el" href="dataworker_8h_source.html">dataworker.h</a></li>
+<li><a class="el" href="dataworker_8cpp_source.html">dataworker.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>实验三：网络数据获取与显示: dataworker.cpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">实验三：网络数据获取与显示
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="namespaces.html"><span>命名空间</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li class="current"><a href="files.html"><span>文件</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>文件列表</span></a></li>
+      <li><a href="globals.html"><span>文件成员</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">dataworker.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="dataworker_8cpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="dataworker_8h.html">dataworker.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;QtNetwork&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;QXmlStreamReader&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classdata_worker.html#af90663713a9facd79f0feefb4a47a56a">   13</a></span>&#160;<a class="code" href="classdata_worker.html#af90663713a9facd79f0feefb4a47a56a">dataWorker::dataWorker</a>(QObject *parent) :</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    QObject(parent),splitter(<span class="stringliteral">&quot;#-#-#&quot;</span>),dataPath(<span class="stringliteral">&quot;data&quot;</span>)</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classdata_worker.html#aae497132e6b8d83d918cf39ca9030424">initNetwork</a>();</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classdata_worker.html#aaa6da1a70a0b51d1fc828e3a9ecfea18">   26</a></span>&#160;<a class="code" href="classdata_worker.html#af90663713a9facd79f0feefb4a47a56a">dataWorker::dataWorker</a>(QString date, QObject *parent) :</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    QObject(parent),splitter(<span class="stringliteral">&quot;#-#-#&quot;</span>),dataPath(<span class="stringliteral">&quot;data&quot;</span>)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="classdata_worker.html#af4b6c2f6fba95121b983fd96abdd57dd">_requestDate</a>= date.replace(<span class="stringliteral">&quot;-&quot;</span>,<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="classdata_worker.html#aae497132e6b8d83d918cf39ca9030424">initNetwork</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classdata_worker.html#a627c177f17c7106a66e60e22b7d91e83">   41</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classdata_worker.html#a627c177f17c7106a66e60e22b7d91e83">dataWorker::setRequestDate</a>(QString newDate)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="classdata_worker.html#af4b6c2f6fba95121b983fd96abdd57dd">_requestDate</a> = newDate.replace(<span class="stringliteral">&quot;-&quot;</span>,<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classdata_worker.html#a151032ff6386fc8bff1d459264c7bea3">   51</a></span>&#160;QString <a class="code" href="classdata_worker.html#a151032ff6386fc8bff1d459264c7bea3">dataWorker::requestDate</a>()</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classdata_worker.html#af4b6c2f6fba95121b983fd96abdd57dd">_requestDate</a>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="classdata_worker.html#a05e1ec0cee2ff2231b8acfa98e4759d4">   62</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classdata_worker.html#a05e1ec0cee2ff2231b8acfa98e4759d4">dataWorker::doRequest</a>()</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;{</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="comment">// 导入数据，首先检查是否已经存在数据文件</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    QString fName = QString(<span class="stringliteral">&quot;%1/%2.txt&quot;</span>).arg(<a class="code" href="classdata_worker.html#a60d4fa059449bfc571fdb9b82b816f27">dataPath</a>,<a class="code" href="classdata_worker.html#af4b6c2f6fba95121b983fd96abdd57dd">_requestDate</a>);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">//    qDebug()&lt;&lt;fName;</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    QStringList dataList;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    QFile f(fName);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">if</span>(f.open(QIODevice::ReadOnly|QIODevice::Text)){  <span class="comment">// 成功打开数据文件，则由文件中读取</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        qDebug().noquote()&lt;&lt;QString(<span class="stringliteral">&quot;数据由文件%1导入...&quot;</span>).arg(fName);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        QTextStream stream (&amp;f);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">while</span>(!stream.atEnd())</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;             dataList&lt;&lt;stream.readLine();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="comment">// 数据导入完成，开始解析</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <a class="code" href="classdata_worker.html#a296383681981e1d5706fa9aeec1b68a6">parseData</a>(dataList.join(<a class="code" href="classdata_worker.html#a5cf5b0506b1ccc3e98782ad71f7baf50">splitter</a>).simplified());</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }<span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="comment">// 如果无数据文件，则从网络获取</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        qDebug().noquote()&lt;&lt;QString(<span class="stringliteral">&quot;数据由网络获取...&quot;</span>);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <a class="code" href="classdata_worker.html#a32cb0331d21490e092d87957ce1491f0">httpGet</a>(<a class="code" href="classdata_worker.html#a811df34883eb9810781139db6579acd8">requestUrl</a>());</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classdata_worker.html#a811df34883eb9810781139db6579acd8">   89</a></span>&#160;QString <a class="code" href="classdata_worker.html#a811df34883eb9810781139db6579acd8">dataWorker::requestUrl</a>()</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;{    </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    QString r =</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            QString(<span class="stringliteral">&quot;https://lishi.tianqi.com/nanjing/%1.html&quot;</span>).arg(<a class="code" href="classdata_worker.html#af4b6c2f6fba95121b983fd96abdd57dd">_requestDate</a>);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    qDebug()&lt;&lt;r;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">return</span> r;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="classdata_worker.html#aae497132e6b8d83d918cf39ca9030424">  102</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classdata_worker.html#aae497132e6b8d83d918cf39ca9030424">dataWorker::initNetwork</a>()</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;{</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <a class="code" href="classdata_worker.html#acb950e7ea55eeb1791115af76c417a7d">manager</a> = <span class="keyword">new</span> QNetworkAccessManager(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    connect(<a class="code" href="classdata_worker.html#acb950e7ea55eeb1791115af76c417a7d">manager</a>, &amp;QNetworkAccessManager::finished,<span class="keyword">this</span>, &amp;<a class="code" href="classdata_worker.html#a380cd2d367704c4cf947b02a4b5061a5">dataWorker::httpsFinished</a>);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;}</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="classdata_worker.html#a9d28389119808b8dbc19b1298f4d4337">  121</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classdata_worker.html#a9d28389119808b8dbc19b1298f4d4337">dataWorker::parseHTML</a>(<span class="keyword">const</span> QString sourceText)</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;{</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="comment">// 使用QXmlStreamReader解析Html文档</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    QXmlStreamReader reader(sourceText.simplified().trimmed());</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    QStringList strData;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordflow">while</span> (!reader.atEnd()) {</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        reader.readNext();</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordflow">if</span> (reader.isStartElement()) {</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            <span class="keywordflow">if</span> (reader.name() == <span class="stringliteral">&quot;ul&quot;</span>){         <span class="comment">// 查找Html标签：ul</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                strData&lt;&lt;reader.readElementText(QXmlStreamReader::IncludeChildElements).trimmed();</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            }</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        }</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    }</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordflow">if</span> (reader.hasError()) {</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        qDebug()&lt;&lt; <span class="stringliteral">&quot;  读取错误： &quot;</span> &lt;&lt; reader.errorString();</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    }<span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        <span class="keywordflow">if</span>(!strData.isEmpty()){</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            <a class="code" href="classdata_worker.html#a296383681981e1d5706fa9aeec1b68a6">parseData</a>(strData.join(<a class="code" href="classdata_worker.html#a5cf5b0506b1ccc3e98782ad71f7baf50">splitter</a>));</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            <a class="code" href="classdata_worker.html#a471db61dcb663c82cfa0503a848b74b1">exportDataToFile</a>(strData.join(<a class="code" href="classdata_worker.html#a5cf5b0506b1ccc3e98782ad71f7baf50">splitter</a>));</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        }</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    }</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;}</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
+<div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="classdata_worker.html#a296383681981e1d5706fa9aeec1b68a6">  154</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classdata_worker.html#a296383681981e1d5706fa9aeec1b68a6">dataWorker::parseData</a>(<span class="keyword">const</span> QString sourceText)</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;{</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    QStringList dataList = sourceText.split(<a class="code" href="classdata_worker.html#a5cf5b0506b1ccc3e98782ad71f7baf50">splitter</a>);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <a class="code" href="classdata_worker.html#a7383de5f88433e13f168e2aa08318a9e">dataDate</a>.clear();</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <a class="code" href="classdata_worker.html#accc61a7c110367f4ba2da4a7d3ba25e1">dataHigh</a>.clear();</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <a class="code" href="classdata_worker.html#a7a15ecce0f884a7c0e0610c20540841b">dataLow</a>.clear();</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    dataList.removeFirst();                  <span class="comment">// 第一条数据是表头，删除</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordflow">for</span> (QString s : dataList){</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        QStringList dataList = s.split(<span class="stringliteral">&quot; &quot;</span>,QString::SkipEmptyParts);</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        QDateTime momentInTime = QDateTime::fromString(dataList.at(0),<span class="stringliteral">&quot;yyyy-MM-dd&quot;</span>);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <a class="code" href="classdata_worker.html#a7383de5f88433e13f168e2aa08318a9e">dataDate</a>.append(momentInTime);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <a class="code" href="classdata_worker.html#accc61a7c110367f4ba2da4a7d3ba25e1">dataHigh</a>.append(dataList.at(1).toDouble());</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <a class="code" href="classdata_worker.html#a7a15ecce0f884a7c0e0610c20540841b">dataLow</a>.append(dataList.at(2).toDouble());</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    }</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    emit <a class="code" href="classdata_worker.html#ad95fb5edbe1b6c80287f6645b0c6d167">dataParseFinished</a>(<a class="code" href="classdata_worker.html#a7383de5f88433e13f168e2aa08318a9e">dataDate</a>,<a class="code" href="classdata_worker.html#accc61a7c110367f4ba2da4a7d3ba25e1">dataHigh</a>,<a class="code" href="classdata_worker.html#a7a15ecce0f884a7c0e0610c20540841b">dataLow</a>);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;}</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
+<div class="line"><a name="l00179"></a><span class="lineno"><a class="line" href="classdata_worker.html#a471db61dcb663c82cfa0503a848b74b1">  179</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classdata_worker.html#a471db61dcb663c82cfa0503a848b74b1">dataWorker::exportDataToFile</a>(<span class="keyword">const</span> QString dataText)</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;{</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    QStringList data = dataText.split(<a class="code" href="classdata_worker.html#a5cf5b0506b1ccc3e98782ad71f7baf50">splitter</a>);</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    QDir dir;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keywordflow">if</span>( ! dir.exists(<a class="code" href="classdata_worker.html#a60d4fa059449bfc571fdb9b82b816f27">dataPath</a>) )</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        qDebug()&lt;&lt;dir.mkdir(<a class="code" href="classdata_worker.html#a60d4fa059449bfc571fdb9b82b816f27">dataPath</a>);</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    QString fName = QString(<span class="stringliteral">&quot;%1/%2.txt&quot;</span>).arg(<a class="code" href="classdata_worker.html#a60d4fa059449bfc571fdb9b82b816f27">dataPath</a>,<a class="code" href="classdata_worker.html#af4b6c2f6fba95121b983fd96abdd57dd">_requestDate</a>);</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    QFile f(fName);</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keywordflow">if</span>(f.open(QIODevice::WriteOnly|QIODevice::Text)){</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        QTextStream stream (&amp;f);</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <span class="keywordflow">for</span>( QString d : data)</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            stream &lt;&lt; d &lt;&lt;<span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    }<span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        qDebug()&lt;&lt;<span class="stringliteral">&quot;打开文件错误&quot;</span>;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    }</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;}</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;</div>
+<div class="line"><a name="l00203"></a><span class="lineno"><a class="line" href="classdata_worker.html#a32cb0331d21490e092d87957ce1491f0">  203</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classdata_worker.html#a32cb0331d21490e092d87957ce1491f0">dataWorker::httpGet</a>(QString url)</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;{</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    QNetworkRequest request;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    request.setUrl(QUrl(url));</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <a class="code" href="classdata_worker.html#acb950e7ea55eeb1791115af76c417a7d">manager</a>-&gt;get(request);</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;}</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;</div>
+<div class="line"><a name="l00215"></a><span class="lineno"><a class="line" href="classdata_worker.html#a380cd2d367704c4cf947b02a4b5061a5">  215</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classdata_worker.html#a380cd2d367704c4cf947b02a4b5061a5">dataWorker::httpsFinished</a>(QNetworkReply *reply)</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;{</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="keywordtype">int</span> v = reply-&gt;attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    QString error=<span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keywordflow">if</span> (reply-&gt;error()) {</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        <span class="comment">// 通知GUI，http访问出错</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;        error = QString(<span class="stringliteral">&quot;访问出错：代码 %1,原因 %2&quot;</span>).arg(v).arg(reply-&gt;errorString());</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        emit <a class="code" href="classdata_worker.html#a2817dfae514b1922b640745423ad7952">httpRequestError</a>(error);</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        reply-&gt;deleteLater();</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        reply = Q_NULLPTR;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    }    </div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="keywordflow">if</span>(v != 200){        </div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        error = QString(<span class="stringliteral">&quot;访问出错：代码 %1,原因 %2&quot;</span>).arg(v).arg(reply-&gt;errorString());</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        emit <a class="code" href="classdata_worker.html#a2817dfae514b1922b640745423ad7952">httpRequestError</a>(error);</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        reply-&gt;deleteLater();</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        reply = Q_NULLPTR;</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    }</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    qDebug()&lt;&lt;<span class="stringliteral">&quot;开始读取返回的数据：&quot;</span>;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    QString html = QString::fromLocal8Bit(reply-&gt;readAll());</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <span class="comment">// 对QNetworkReply对象，在使用完成后必须由程序员进行释放</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <span class="comment">// 释放时，不能直接使用delete函数，而使用deleteLater函数</span></div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    reply-&gt;deleteLater();</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    reply = Q_NULLPTR;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    qDebug()&lt;&lt;<span class="stringliteral">&quot;返回数据长度：&quot;</span>&lt;&lt;html.size();</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="comment">// qDebug最大显示27605个</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="comment">// qDebug()&lt;&lt;html.left(27605);</span></div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="comment">// 先做一个简单处理，将包含内容的完整&lt;div&gt;..&lt;/div&gt;标签内的文本内容，</span></div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="comment">// 并滤除其中的空白字符&quot;\r\n\t&quot;</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordtype">int</span> begin = html.indexOf(<span class="stringliteral">&quot;&lt;div class=\&quot;tqtongji2\&quot;&gt;&quot;</span>);</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="keywordtype">int</span> end = html.indexOf(<span class="stringliteral">&quot;&lt;div class=\&quot;lishicity03\&quot;&gt;&quot;</span>);</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    html = html.mid(begin,end-begin);</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    html = html.left(html.indexOf(<span class="stringliteral">&quot;&lt;div style=\&quot;clear:both\&quot;&gt;&quot;</span>));</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    html = html.simplified().trimmed();</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="keywordflow">if</span> (! html.isEmpty()){</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        qDebug()&lt;&lt;<span class="stringliteral">&quot;开始解析html&quot;</span>;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        <a class="code" href="classdata_worker.html#a9d28389119808b8dbc19b1298f4d4337">parseHTML</a>(html);  <span class="comment">// 开始解析HTML</span></div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    }<span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        qDebug()&lt;&lt;<span class="stringliteral">&quot;HTML内容为空：&quot;</span>&lt;&lt;html;</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        emit <a class="code" href="classdata_worker.html#a379c30d2d856e7f684f3042786a77733">dataParseError</a>(QString(<span class="stringliteral">&quot;HTML内容为空&quot;</span>));</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    }</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;}</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;</div>
+<div class="ttc" id="classdata_worker_html_a05e1ec0cee2ff2231b8acfa98e4759d4"><div class="ttname"><a href="classdata_worker.html#a05e1ec0cee2ff2231b8acfa98e4759d4">dataWorker::doRequest</a></div><div class="ttdeci">void doRequest()</div><div class="ttdoc">开始发送请求 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8cpp_source.html#l00062">dataworker.cpp:62</a></div></div>
+<div class="ttc" id="classdata_worker_html_ad95fb5edbe1b6c80287f6645b0c6d167"><div class="ttname"><a href="classdata_worker.html#ad95fb5edbe1b6c80287f6645b0c6d167">dataWorker::dataParseFinished</a></div><div class="ttdeci">void dataParseFinished(QList&lt; QDateTime &gt; date, QList&lt; qreal &gt; high, QList&lt; qreal &gt; low)</div><div class="ttdoc">数据解析完成信号 </div></div>
+<div class="ttc" id="classdata_worker_html_a627c177f17c7106a66e60e22b7d91e83"><div class="ttname"><a href="classdata_worker.html#a627c177f17c7106a66e60e22b7d91e83">dataWorker::setRequestDate</a></div><div class="ttdeci">void setRequestDate(QString newDate)</div><div class="ttdoc">设置请求年月的setter函数 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8cpp_source.html#l00041">dataworker.cpp:41</a></div></div>
+<div class="ttc" id="classdata_worker_html_a60d4fa059449bfc571fdb9b82b816f27"><div class="ttname"><a href="classdata_worker.html#a60d4fa059449bfc571fdb9b82b816f27">dataWorker::dataPath</a></div><div class="ttdeci">const QString dataPath</div><div class="ttdoc">数据保存路径 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8h_source.html#l00048">dataworker.h:48</a></div></div>
+<div class="ttc" id="classdata_worker_html_accc61a7c110367f4ba2da4a7d3ba25e1"><div class="ttname"><a href="classdata_worker.html#accc61a7c110367f4ba2da4a7d3ba25e1">dataWorker::dataHigh</a></div><div class="ttdeci">QList&lt; qreal &gt; dataHigh</div><div class="ttdoc">最高温度 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8h_source.html#l00044">dataworker.h:44</a></div></div>
+<div class="ttc" id="classdata_worker_html_a296383681981e1d5706fa9aeec1b68a6"><div class="ttname"><a href="classdata_worker.html#a296383681981e1d5706fa9aeec1b68a6">dataWorker::parseData</a></div><div class="ttdeci">void parseData(const QString sourceText)</div><div class="ttdoc">解析数据 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8cpp_source.html#l00154">dataworker.cpp:154</a></div></div>
+<div class="ttc" id="classdata_worker_html_a32cb0331d21490e092d87957ce1491f0"><div class="ttname"><a href="classdata_worker.html#a32cb0331d21490e092d87957ce1491f0">dataWorker::httpGet</a></div><div class="ttdeci">void httpGet(QString url)</div><div class="ttdoc">执行http请求（GET方法） </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8cpp_source.html#l00203">dataworker.cpp:203</a></div></div>
+<div class="ttc" id="classdata_worker_html_acb950e7ea55eeb1791115af76c417a7d"><div class="ttname"><a href="classdata_worker.html#acb950e7ea55eeb1791115af76c417a7d">dataWorker::manager</a></div><div class="ttdeci">QNetworkAccessManager * manager</div><div class="ttdoc">网络访问管理类对象 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8h_source.html#l00040">dataworker.h:40</a></div></div>
+<div class="ttc" id="classdata_worker_html_af90663713a9facd79f0feefb4a47a56a"><div class="ttname"><a href="classdata_worker.html#af90663713a9facd79f0feefb4a47a56a">dataWorker::dataWorker</a></div><div class="ttdeci">dataWorker(QObject *parent=0)</div><div class="ttdoc">dataWorker::dataWorker 构造函数 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8cpp_source.html#l00013">dataworker.cpp:13</a></div></div>
+<div class="ttc" id="classdata_worker_html_a151032ff6386fc8bff1d459264c7bea3"><div class="ttname"><a href="classdata_worker.html#a151032ff6386fc8bff1d459264c7bea3">dataWorker::requestDate</a></div><div class="ttdeci">QString requestDate()</div><div class="ttdoc">getter函数，获得当前的年月 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8cpp_source.html#l00051">dataworker.cpp:51</a></div></div>
+<div class="ttc" id="classdata_worker_html_a9d28389119808b8dbc19b1298f4d4337"><div class="ttname"><a href="classdata_worker.html#a9d28389119808b8dbc19b1298f4d4337">dataWorker::parseHTML</a></div><div class="ttdeci">void parseHTML(const QString sourceText)</div><div class="ttdoc">解析HTML </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8cpp_source.html#l00121">dataworker.cpp:121</a></div></div>
+<div class="ttc" id="dataworker_8h_html"><div class="ttname"><a href="dataworker_8h.html">dataworker.h</a></div></div>
+<div class="ttc" id="classdata_worker_html_a5cf5b0506b1ccc3e98782ad71f7baf50"><div class="ttname"><a href="classdata_worker.html#a5cf5b0506b1ccc3e98782ad71f7baf50">dataWorker::splitter</a></div><div class="ttdeci">const QString splitter</div><div class="ttdoc">数据分隔符 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8h_source.html#l00047">dataworker.h:47</a></div></div>
+<div class="ttc" id="classdata_worker_html_a471db61dcb663c82cfa0503a848b74b1"><div class="ttname"><a href="classdata_worker.html#a471db61dcb663c82cfa0503a848b74b1">dataWorker::exportDataToFile</a></div><div class="ttdeci">void exportDataToFile(const QString dataText)</div><div class="ttdoc">将数据输出为文件 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8cpp_source.html#l00179">dataworker.cpp:179</a></div></div>
+<div class="ttc" id="classdata_worker_html_a7a15ecce0f884a7c0e0610c20540841b"><div class="ttname"><a href="classdata_worker.html#a7a15ecce0f884a7c0e0610c20540841b">dataWorker::dataLow</a></div><div class="ttdeci">QList&lt; qreal &gt; dataLow</div><div class="ttdoc">最低温度 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8h_source.html#l00045">dataworker.h:45</a></div></div>
+<div class="ttc" id="classdata_worker_html_a380cd2d367704c4cf947b02a4b5061a5"><div class="ttname"><a href="classdata_worker.html#a380cd2d367704c4cf947b02a4b5061a5">dataWorker::httpsFinished</a></div><div class="ttdeci">void httpsFinished(QNetworkReply *reply)</div><div class="ttdoc">网络请求完成finished信号的响应槽函数 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8cpp_source.html#l00215">dataworker.cpp:215</a></div></div>
+<div class="ttc" id="classdata_worker_html_af4b6c2f6fba95121b983fd96abdd57dd"><div class="ttname"><a href="classdata_worker.html#af4b6c2f6fba95121b983fd96abdd57dd">dataWorker::_requestDate</a></div><div class="ttdeci">QString _requestDate</div><div class="ttdoc">请求年月 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8h_source.html#l00041">dataworker.h:41</a></div></div>
+<div class="ttc" id="classdata_worker_html_a2817dfae514b1922b640745423ad7952"><div class="ttname"><a href="classdata_worker.html#a2817dfae514b1922b640745423ad7952">dataWorker::httpRequestError</a></div><div class="ttdeci">void httpRequestError(QString error)</div><div class="ttdoc">httpRequestError </div></div>
+<div class="ttc" id="classdata_worker_html_a811df34883eb9810781139db6579acd8"><div class="ttname"><a href="classdata_worker.html#a811df34883eb9810781139db6579acd8">dataWorker::requestUrl</a></div><div class="ttdeci">QString requestUrl()</div><div class="ttdoc">构造实际请求链接 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8cpp_source.html#l00089">dataworker.cpp:89</a></div></div>
+<div class="ttc" id="classdata_worker_html_a379c30d2d856e7f684f3042786a77733"><div class="ttname"><a href="classdata_worker.html#a379c30d2d856e7f684f3042786a77733">dataWorker::dataParseError</a></div><div class="ttdeci">void dataParseError(QString error)</div><div class="ttdoc">dataParseError </div></div>
+<div class="ttc" id="classdata_worker_html_aae497132e6b8d83d918cf39ca9030424"><div class="ttname"><a href="classdata_worker.html#aae497132e6b8d83d918cf39ca9030424">dataWorker::initNetwork</a></div><div class="ttdeci">void initNetwork()</div><div class="ttdoc">初始化网络请求管理类QNetworkAccessManager类 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8cpp_source.html#l00102">dataworker.cpp:102</a></div></div>
+<div class="ttc" id="classdata_worker_html_a7383de5f88433e13f168e2aa08318a9e"><div class="ttname"><a href="classdata_worker.html#a7383de5f88433e13f168e2aa08318a9e">dataWorker::dataDate</a></div><div class="ttdeci">QList&lt; QDateTime &gt; dataDate</div><div class="ttdoc">日期 </div><div class="ttdef"><b>Definition:</b> <a href="dataworker_8h_source.html#l00043">dataworker.h:43</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
+</body>
+</html>
